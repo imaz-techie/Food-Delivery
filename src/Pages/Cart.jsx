@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { dataContext } from "../Context/UserContext";
 import Card2 from "../Components/Card2";
 import Button from "../Components/Button";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { setShowCart } = useContext(dataContext);
@@ -66,7 +67,11 @@ const Cart = () => {
             </div>
             <hr className="text-zinc-300" />
             <div className="w-full mt-2 flex justify-center">
-              <Button content="Place Order" className="w-[70%]" />
+              <Button
+                content="Place Order"
+                className="w-[70%]"
+                onClick={() => toast.success("Order Placed")}
+              />
             </div>
           </div>
         </div>
