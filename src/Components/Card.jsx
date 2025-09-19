@@ -1,30 +1,41 @@
 import { TbLeaf } from "react-icons/tb";
 import { GiChickenLeg } from "react-icons/gi";
 import Button from "./Button";
+import { useDispatch } from "react-redux";
+import { AddItem } from "../redux/cartSlice"; // 👈 adjust path if needed
 
-const Card = ({ name, id, image, type, price, className }) => {
+const Card = ({ name, id, image, type, price }) => {
+  const dispatch = useDispatch();
+
   const isVeg = type.toLowerCase() === "veg";
+
+  const handleAdd = () => {
+    dispatch(AddItem({ id, name, image, type, price }));
+  };
 
   return (
     <div
       key={id}
-      className={`bg-white p-3 rounded shadow-lg hover:outline-green-500 flex flex-col ${className}`}
+      className="
+        bg-white p-3 rounded-lg shadow-xl
+        flex flex-col 
+        w-full sm:w-[300px] md:w-[260px] lg:w-[280px]
+        mx-4 sm:mx-0
+      "
     >
       {/* Image */}
-      <div className="w-full h-48 sm:h-56 md:h-60 overflow-hidden rounded">
+      <div className="w-full h-48 sm:h-52 md:h-56 overflow-hidden rounded">
         <img src={image} alt={name} className="w-full h-full object-cover" />
       </div>
 
       {/* Content */}
       <div className="mt-3 flex-1 flex flex-col justify-between">
         <div>
-          {/* Name */}
-          <div className="text-2xl font-bold my-2">{name}</div>
+          <div className="text-xl sm:text-2xl font-bold my-2">{name}</div>
 
-          {/* Price and type */}
-          <div className="flex justify-between text-lg font-semibold my-2 items-center">
+          <div className="flex justify-between text-base sm:text-lg font-semibold my-2 items-center">
             <div className={`${isVeg ? "text-green-600" : "text-red-600"}`}>
-              Rs {price}/-
+              ₹{price}/-
             </div>
             <div className="flex items-center gap-1">
               {isVeg ? (
@@ -39,8 +50,7 @@ const Card = ({ name, id, image, type, price, className }) => {
           </div>
         </div>
 
-        {/* Button */}
-        <Button content="Add a Dish" />
+        <Button content="Add to Cart" onClick={handleAdd} />
       </div>
     </div>
   );
