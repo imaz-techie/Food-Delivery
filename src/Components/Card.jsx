@@ -3,6 +3,7 @@ import { GiChickenLeg } from "react-icons/gi";
 import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { AddItem } from "../redux/cartSlice"; // 👈 adjust path if needed
+import { toast } from "react-toastify";
 
 const Card = ({ name, id, image, type, price }) => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Card = ({ name, id, image, type, price }) => {
 
   const handleAdd = () => {
     dispatch(AddItem({ id, name, image, type, price }));
+    toast.success("Item added to cart!");
   };
 
   return (

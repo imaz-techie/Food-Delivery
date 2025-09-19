@@ -1,9 +1,15 @@
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { DecreaseQty, IncreaseQty, RemoveItem } from "../redux/cartSlice";
+import { toast } from "react-toastify";
 
 const Card2 = ({ name, image, price, type, id, qty }) => {
   let dispatch = useDispatch();
+
+  function handleRemove() {
+    dispatch(RemoveItem(id));
+    toast.error("Item removed from cart!");
+  }
 
   return (
     <div
@@ -42,7 +48,7 @@ const Card2 = ({ name, image, price, type, id, qty }) => {
         {/* <span className="text-xs">{type}</span> */}
         <RiDeleteBin5Line
           className="text-red-500 text-3xl cursor-pointer"
-          onClick={() => dispatch(RemoveItem(id))}
+          onClick={handleRemove}
         />
       </div>
     </div>

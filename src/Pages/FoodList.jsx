@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Card from "../Components/Card";
+import { dataContext } from "../Context/UserContext";
 import { food_items } from "../food";
 import Category from "./Category";
-import { dataContext } from "../Context/UserContext";
 
 const FoodList = () => {
   let { categ, setCateg } = useContext(dataContext);

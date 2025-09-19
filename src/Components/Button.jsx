@@ -1,8 +1,8 @@
-const Button = ({ content, onClick }) => {
+const Button = ({ content, onClick, className }) => {
   return (
     <button
       onClick={onClick}
-      className="bg-gradient-to-b from-green-300 to-green-600 text-white px-4 py-2 my-2 rounded hover:bg-green-300"
+      className={`bg-gradient-to-b from-orange-300 to-orange-500 text-white px-4 py-2 my-2 rounded hover:bg-green-300 ${className}`}
     >
       <h3 className="flex items-center justify-center font-semibold">
         {content}

@@ -1,10 +1,10 @@
-import { CiSearch } from "react-icons/ci";
-import logo from "../assets/burger.png";
-import { MdShoppingCart } from "react-icons/md";
 import { useContext, useEffect } from "react";
+import { CiSearch } from "react-icons/ci";
+import { TiShoppingCart } from "react-icons/ti";
+import { useSelector } from "react-redux";
+import logo from "../assets/burger.png";
 import { dataContext } from "../Context/UserContext";
 import { food_items } from "../food";
-import { useSelector } from "react-redux";
 
 const Navbar = () => {
   let { input, setInput, categ, setCateg, showCart, setShowCart } =
@@ -34,7 +34,7 @@ const Navbar = () => {
           />
           <h1
             className="
-              relative text-green-400 text-xl sm:text-2xl font-extrabold tracking-wide uppercase
+              relative text-orange-400 text-xl sm:text-2xl font-extrabold tracking-wide uppercase
               drop-shadow-[4px_4px_0px_#065f46]
               [text-shadow:2px_2px_0px_#065f46,4px_4px_0px_#000]
               transform hover:scale-105 transition-transform duration-300
@@ -42,7 +42,7 @@ const Navbar = () => {
           >
             QuickBite
             <span
-              className="absolute inset-0 text-green-200 blur-sm opacity-40 -z-10"
+              className="absolute inset-0 text-orange-200 blur-sm opacity-40 -z-10"
               aria-hidden="true"
             >
               QuickBite
@@ -69,11 +69,11 @@ const Navbar = () => {
 
           {/* Cart */}
           <div className="bg-slate-100 px-4 py-3 rounded relative flex items-center">
-            <span className="absolute top-0 right-2 text-green-700 font-bold text-sm sm:text-base">
+            <span className="absolute top-0 right-2 text-zinc-600 font-bold text-xs sm:text-base">
               {item.length}
             </span>
-            <MdShoppingCart
-              className="w-6 h-6 sm:w-8 sm:h-8 text-green-800 cursor-pointer"
+            <TiShoppingCart
+              className="w-6 h-6 sm:w-8 sm:h-8 text-orange-400 cursor-pointer"
               onClick={() => setShowCart(true)}
             />
           </div>

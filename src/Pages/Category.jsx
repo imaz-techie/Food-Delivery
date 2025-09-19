@@ -12,7 +12,7 @@ const Category = ({ filterCategory }) => {
           onClick={() => filterCategory(category.name)}
           className="bg-white p-4 mb-6 rounded-lg gap-2 w-[140px] h-[80px] 
                      flex flex-col items-center justify-center 
-                     bg-gradient-to-b from-green-400 to-green-600 
+                     bg-gradient-to-b from-orange-300 to-orange-400 
                      cursor-pointer hover:bg-green-800 transition-all 
                      duration-200 hover:text-white"
         >
